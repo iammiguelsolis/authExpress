@@ -1,4 +1,6 @@
 export const errorHandler = (err, req, res, next) => {
+  console.error(err)
+
   if (err.isOperational) {
     return res.status(err.statusCode).json({
       status: 'error',
@@ -6,8 +8,6 @@ export const errorHandler = (err, req, res, next) => {
       message: err.message
     })
   }
-
-  console.error(err)
 
   res.status(500).json({
     status: 'error',

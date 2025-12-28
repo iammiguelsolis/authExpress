@@ -12,4 +12,16 @@ export default class AuthController {
       next(err)
     }
   }
+
+  static async login (req, res, next) {
+    try {
+      const result = await AuthService.login(req.body)
+      res.status(200).json({
+        message: 'Login Exitoso',
+        token: result
+      })
+    } catch (err) {
+      next(err)
+    }
+  }
 }

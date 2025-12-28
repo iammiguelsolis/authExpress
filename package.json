@@ -1,0 +1,32 @@
+{
+  "name": "nueva-carpeta-(4)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "6.0.0",
+    "cors": "2.8.5",
+    "dotenv": "17.2.3",
+    "express": "5.2.1",
+    "helmet": "8.1.0",
+    "joi": "18.0.2",
+    "jsonwebtoken": "9.0.3",
+    "mysql2": "3.16.0"
+  },
+  "devDependencies": {
+    "jest": "30.2.0",
+    "morgan": "1.10.1",
+    "standard": "17.1.2",
+    "supertest": "7.1.4"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}

@@ -11,11 +11,11 @@ export default class AuthController {
     }
 
     try {
-      const result = await AuthService.create(username, password)
+      const result = await AuthService.create({ username, password })
 
-      return res.status(200).json(result)
+      return res.status(201).json(result)
     } catch (err) {
-      return res.status(404).json(err.message)
+      return res.status(409).json({ message: err.message })
     }
   }
 }

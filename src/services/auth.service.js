@@ -3,13 +3,13 @@ import bcrypt from 'bcrypt'
 
 export default class AuthService {
   static async create ({ username, password }) {
-    const hashedPassword = await bcrypt.hash(password, 10)
-
-    const existingUser = UserReporsitory.findByUsername(username)
+    const existingUser = await UserReporsitory.findByUsername(username)
 
     if (existingUser) {
       throw new Error('Usuario ya existente')
     }
+
+    const hashedPassword = await bcrypt.hash(password, 10)
 
     const newuser = await UserReporsitory.create({
       username,

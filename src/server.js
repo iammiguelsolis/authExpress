@@ -4,6 +4,8 @@ import morgan from 'morgan'
 import userRouters from './routes/user.routes.js'
 import authRouters from './routes/auth.routes.js'
 
+import { errorHandler } from './middlewares/error.middleware.js'
+
 const app = express()
 
 app.use(express.json())
@@ -11,6 +13,8 @@ app.use(morgan('dev'))
 
 app.use('/user', userRouters)
 app.use('/auth', authRouters)
+
+app.use(errorHandler)
 
 app.get('/', (req, res) => {
   res.status(200).json({

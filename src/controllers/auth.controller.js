@@ -1,21 +1,15 @@
 import AuthService from '../services/auth.service.js'
 
 export default class AuthController {
-  static async create (req, res) {
-    const { username, password } = req.body
-
-    if (!username || !password) {
-      return res.status(400).json({
-        message: 'Datos incompletos'
-      })
-    }
-
+  static async create (req, res, next) {
     try {
-      const result = await AuthService.create({ username, password })
-
-      return res.status(201).json(result)
+      const result = await AuthService.create(req.body)
+      res.status(201).json({
+        message: 'Usuario creado correctamente',
+        data: result
+      })
     } catch (err) {
-      return res.status(409).json({ message: err.message })
+      next(err)
     }
   }
 }

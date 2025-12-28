@@ -1,8 +1,10 @@
 import expres from 'express'
 import AuthController from '../controllers/auth.controller.js'
+import { validateBody } from '../middlewares/validate.middleware.js'
+import { registerSchema } from '../schemas/auth.schema.js'
 
 const router = expres.Router()
 
-router.post('/register', AuthController.create)
+router.post('/register', validateBody(registerSchema), AuthController.create)
 
 export default router

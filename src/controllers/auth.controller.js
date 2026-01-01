@@ -12,6 +12,7 @@ export default class AuthController {
       next(err)
     }
   }
+
   static async login (req, res, next) {
     try {
       const result = await AuthService.login(req.body)
